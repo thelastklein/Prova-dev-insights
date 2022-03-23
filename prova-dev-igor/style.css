@@ -1,0 +1,67 @@
+.Header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Roboto, sans-serif;
+}
+
+
+.Search {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+input {
+    width: 1200px;
+    height: 40px;
+    border: solid black 2px;
+    border-radius: 10px;
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    padding-left: 15px;
+    background: url(./assets/Vector.svg) no-repeat right 15px center;
+    background-size: 30px;
+}
+
+.Container {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    font-family: Roboto, sans-serif;
+}
+
+.carContainer {
+    
+    background-color: #e6e6e6;
+    width: 250px;
+    height: 300px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-right: 2vw;
+    margin-top: 10px;
+}
+
+.carContainer:hover {
+    background-color:#B0B0B0 ;
+}
+
+.carImg {
+    margin: 10px 10px 0 10px;
+}
+
+.carName {
+    margin-left: 10px;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+    
+}
+
+.carPrice {
+    text-align: right;
+    margin-right: 10px;
+    font-family: Roboto, sans-serif;
+    font-weight: bold;
+}
