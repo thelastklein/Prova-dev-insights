@@ -21,11 +21,19 @@
         <img src="./assets/Vector.png" alt="Lupa" class="input-img">
     </div>
 
-    <h3 class="container">Carros encontrados:</h3>
+    <h3 class="container" id="car-count">Carros encontrados: </h3>
 
     <div class="car-container container" id="car-container"></div>
     <div class="bg-modal" onclick="fecharModal()"></div>
-    <div class="modal-container"></div>
+    <div class="modal-container">
+        <div class="bg-close"> <p class="close-btn" onclick="fecharModal()">X</p> </div>
+        <img class="modal-img" src=""  alt="Carro">
+        <p class="modal-name"></p>
+        <p class="modal-price"></p>
+        <p class="modal-desc">Lorem Jaguar lorem lorem carro barato e rapido lorem impsi</p>
+        <button class="buy-btn">Comprar Agora</button>
+
+    </div>
     
     <script src="./script.js"></script>
 

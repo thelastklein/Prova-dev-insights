@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Roboto, sans-serif;
 }
 
 .container {
@@ -49,7 +50,7 @@ input {
 
 h3 {
     padding: 10px;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .car-container {
@@ -60,7 +61,7 @@ h3 {
 }
 
 .modal-container {
-    display: none;
+    display: flex;
     top: 0;
     right: 0;
     left: 0;
@@ -72,7 +73,11 @@ h3 {
     margin: 90px auto;
     border-radius: 5px;
     background-color: white;
+    transform: translateY(-120%);
+    transition: all 0.5s;
+    
 }
+
 
 .bg-modal {
     display: none;
@@ -81,7 +86,7 @@ h3 {
     top: 0;
     margin: 0 auto;
     width: 100%;
-    height: 100%;
+    height: 1000%;
     background-color: rgba(0, 0, 0, 0.35);
     z-index: 100;
 }
@@ -94,8 +99,7 @@ h3 {
     left: 0;
     margin: auto;
     padding: 5px;
-    font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
     color: white;
  
 }
@@ -129,18 +133,24 @@ h3 {
     position:absolute;
     left: 150px;
     bottom: 130px;
+    font-family: Roboto, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .modal-price {
     position: absolute;
     right: 150px;
     bottom: 130px;
+    font-size: 20px;
 }
 
 .modal-desc {
     position:absolute;
     left: 150px;
     bottom: 90px;
+    font-size: 15px;
+    font-family: Roboto, sans-serif;
 }
 
 .buy-btn {
@@ -151,6 +161,12 @@ h3 {
     background-color: #FC6500;
     border-radius: 5px;
     color: white;
+    font-size: 20px;
+}
+
+.buy-btn:hover {
+    cursor: pointer;
+    filter:brightness(0.8)
 }
 
 .card-container {
@@ -165,6 +181,7 @@ h3 {
 .card-container:hover {
     background-color:#B0B0B0;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 
@@ -179,17 +196,16 @@ h3 {
     margin-left: 10px;
     font-family: Roboto, sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 22px;
     
 }
 
 .car-price {
     text-align: right;
     margin-right: 10px;
-    margin-top: 15px;
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: 20px;
+    margin-top: 20px;
+    font-family: Roboto, sans-serif;
+    font-size: 22px;
 }
 
 @media (max-width: 700px) {
