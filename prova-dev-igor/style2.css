@@ -75,6 +75,7 @@ h3 {
     border-radius: 5px;
     background-color: white;
     transform: translateY(-150%);
+    visibility: hidden;
     transition: all 0.5s;
     
 }
@@ -217,8 +218,8 @@ h3 {
     .input-img{right: 55px;}
     .car-container{justify-content: center;}
     .card-container{margin-right: 0;}
-    .modal-container{height: 50%;}
-    .modal-img{width:50vw; margin-top:25px;}
+    .modal-container{width: 90%;}
+    .modal-img{margin-top:25px;}
     .modal-name{left: 15px;}
     .modal-price{right: 15px;}
     .modal-desc{left: 15px;}

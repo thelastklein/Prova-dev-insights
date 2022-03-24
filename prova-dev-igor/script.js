@@ -46,7 +46,7 @@ function exibeModal(idCarro) {
 
     
     let modal = document.querySelector(".modal-container")
-    modal.style.cssText += "transform: translateY(0%)"
+    modal.style.cssText += "transform: translateY(0%); visibility: visible"
 
     let bg_modal = document.querySelector(".bg-modal")
     bg_modal.style.display = "flex"
@@ -77,7 +77,7 @@ function exibeModal(idCarro) {
 function fecharModal() {
  
     let modal = document.querySelector(".modal-container")
-    modal.style.cssText += "transform: translateY(-120%)"
+    modal.style.cssText += "transform: translateY(-150%); visibility: hidden"
 
     let bg_modal = document.querySelector(".bg-modal")
     bg_modal.style.display = "none"
@@ -137,7 +137,7 @@ exibeCarro(carList)
 
 
 window.addEventListener("keyup", (e) =>{
-    if(e.keyCode === 27) {
+    if(e.key == "Escape") {
         fecharModal()
     }
 })
