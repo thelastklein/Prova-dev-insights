@@ -62,18 +62,19 @@ h3 {
 
 .modal-container {
     display: flex;
+    flex-wrap: wrap;
     top: 0;
     right: 0;
     left: 0;
+    padding: 15px;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     z-index: 101;
-    width: 50%;
-    height: 70%;
+    width: 40%;
     margin: 90px auto;
     border-radius: 5px;
     background-color: white;
-    transform: translateY(-120%);
+    transform: translateY(-150%);
     transition: all 0.5s;
     
 }
@@ -82,7 +83,7 @@ h3 {
 .bg-modal {
     display: none;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     top: 0;
     margin: 0 auto;
     width: 100%;
@@ -123,15 +124,19 @@ h3 {
 }
 
 .modal-img {
-    width: 400px;
-    position: absolute;
-    padding: 10px;
+    width: 100%;
     border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.modal-title{
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .modal-name {
-    position:absolute;
-    left: 150px;
     bottom: 130px;
     font-family: Roboto, sans-serif;
     font-size: 20px;
@@ -139,22 +144,19 @@ h3 {
 }
 
 .modal-price {
-    position: absolute;
-    right: 150px;
     bottom: 130px;
     font-size: 20px;
 }
 
-.modal-desc {
-    position:absolute;
-    left: 150px;
-    bottom: 90px;
+.modal-desc {         
     font-size: 15px;
     font-family: Roboto, sans-serif;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 10px;
 }
 
 .buy-btn {
-    position: absolute;
     bottom: 10px;
     width: 90%;
     height: 50px;
@@ -162,6 +164,8 @@ h3 {
     border-radius: 5px;
     color: white;
     font-size: 20px;
+    font-weight: bold;
+    border: none;
 }
 
 .buy-btn:hover {
@@ -208,10 +212,15 @@ h3 {
     font-size: 22px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
     .container{padding-left: 30px; padding-right: 30px;}
     .input-img{right: 55px;}
     .car-container{justify-content: center;}
     .card-container{margin-right: 0;}
+    .modal-container{height: 50%;}
+    .modal-img{width:50vw; margin-top:25px;}
+    .modal-name{left: 15px;}
+    .modal-price{right: 15px;}
+    .modal-desc{left: 15px;}
 
 }
