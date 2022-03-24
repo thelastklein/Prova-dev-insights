@@ -3,34 +3,39 @@ let carList = [
         id: 1,
         img: "./assets/gol.png",
         nome: "Gol",
-        preco: "R$ 200"
+        preco: "R$ 200",
+        desc: "Carro Volkswagen Gol vermelho"
     },
     
     {
         id: 2,
         img: "./assets/celta.png",
         nome: "Celta",
-        preco: "R$ 100"
+        preco: "R$ 100",
+        desc: "Chevrolet Celta preto"
     },
 
     {
         id: 3,
         img: "./assets/jaguar.png",
         nome: "Jaguar",
-        preco: "R$ 500"
+        preco: "R$ 500",
+        desc: "Carro modelo Jaguar preto"
     },
 
     {
         id: 4,
         img: "./assets/fusca.png",
         nome: "Fusca",
-        preco: "R$ 300"
+        preco: "R$ 300",
+        desc: "Fusca azul"
     },
     {
         id: 5,
         img: "./assets/fusca.png",
         nome: "Fusca 2",
-        preco: "R$ 300"
+        preco: "R$ 300",
+        desc: "Fusca azul"
     },
 
 ]
@@ -65,16 +70,8 @@ function exibeModal(idCarro) {
     let modalPrice = document.querySelector('.modal-price')
     modalPrice.innerHTML = `${cardModal.preco}`
 
-
-    // modal.innerHTML = ""
-    // modal.innerHTML += `
-    //     <div class="bg-close"> <p class="close-btn" onclick="fecharModal()">X</p> </div>
-    //     <img class="modal-img" src= ${cardModal.img}  alt="Carro">
-    //     <p class="modal-name">${cardModal.nome}</p>
-    //     <p class="modal-price">${cardModal.preco}</p>
-    //     <p class="modal-desc">Lorem Jaguar lorem lorem carro barato e rapido lorem</p>
-    //     <button class="buy-btn">Comprar Agora</button>
-    // `
+    let modalDesc = document.querySelector('.modal-desc')
+    modalDesc.innerHTML = `${cardModal.desc}`
 }
 
 function fecharModal() {
@@ -139,5 +136,9 @@ function pesquisaCarro() {
 exibeCarro(carList)
 
 
-
+window.addEventListener("keyup", (e) =>{
+    if(e.keyCode === 27) {
+        fecharModal()
+    }
+})
 
