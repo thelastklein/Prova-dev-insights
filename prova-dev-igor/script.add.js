@@ -10,7 +10,9 @@ function novoCarro(){
     fetch(url, {
         method: "POST",
         body: formData
-     }).then(res => res.json()).then(data => alert(data))
+     })
+     .then(res => res.json())
+     .catch(error => alert(error))
  
 }
 
