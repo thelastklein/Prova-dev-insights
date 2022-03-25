@@ -1,44 +1,19 @@
-let carList = [
-    {   
-        id: 1,
-        img: "./assets/gol.png",
-        nome: "Gol",
-        preco: "R$ 200",
-        desc: "Carro Volkswagen Gol vermelho"
-    },
-    
-    {
-        id: 2,
-        img: "./assets/celta.png",
-        nome: "Celta",
-        preco: "R$ 100",
-        desc: "Chevrolet Celta preto"
-    },
+ let carList = []
+ let apiUrl =  'https://imdev.azurewebsites.net/vendarro'
 
-    {
-        id: 3,
-        img: "./assets/jaguar.png",
-        nome: "Jaguar",
-        preco: "R$ 500",
-        desc: "Carro modelo Jaguar preto"
-    },
+function buscarApi(){
+    fetch(apiUrl + '/get-carros.php')
+    .then(res => res.json())
+    .then(data => { 
+        carList = data
+        exibeCarro(carList)
+        console.log(carList)
+    } ) 
+}
 
-    {
-        id: 4,
-        img: "./assets/fusca.png",
-        nome: "Fusca",
-        preco: "R$ 300",
-        desc: "Fusca azul"
-    },
-    {
-        id: 5,
-        img: "./assets/fusca.png",
-        nome: "Fusca 2",
-        preco: "R$ 300",
-        desc: "Fusca azul"
-    },
+buscarApi()
 
-]
+
 
 function exibeModal(idCarro) {
     
@@ -62,16 +37,16 @@ function exibeModal(idCarro) {
       })
 
     let modalImg = document.querySelector('.modal-img')
-    modalImg.setAttribute("src", cardModal.img)
+    modalImg.setAttribute("src", `${apiUrl}/${cardModal.filePath}`)
 
     let modalName = document.querySelector('.modal-name')
-    modalName.innerHTML = `${cardModal.nome}`
+    modalName.innerHTML = `${cardModal.modelo}`
 
     let modalPrice = document.querySelector('.modal-price')
-    modalPrice.innerHTML = `${cardModal.preco}`
+    modalPrice.innerHTML = `${cardModal.valor}`
 
     let modalDesc = document.querySelector('.modal-desc')
-    modalDesc.innerHTML = `${cardModal.desc}`
+    modalDesc.innerHTML = `${cardModal.descricao}`
 }
 
 function fecharModal() {
@@ -100,9 +75,9 @@ function exibeCarro(carResult) {
     for (let i in carResult) {
             carContainer.innerHTML += `
                 <div class="card-container" data-id=${carResult[i].id}>
-                    <img class="car-img" src = ${carResult[i].img} alt="Carro">
-                    <p class="car-name" data-name=${carResult[i].nome}>${carResult[i].nome}</p>
-                    <p class="car-price">${carResult[i].preco}</p>
+                    <img class="car-img" src = ${apiUrl}/${carResult[i].filePath} alt="Carro">
+                    <p class="car-name" data-name=${carResult[i].modelo}>${carResult[i].modelo}</p>
+                    <p class="car-price">${carResult[i].valor}</p>
                 
                 </div>`     
     }
@@ -122,7 +97,7 @@ function pesquisaCarro() {
 
 
     let carResult = carList.filter(function resultadoCarro(carList){
-        return carList.nome.toLowerCase().includes(carro)
+        return carList.modelo.toLowerCase().includes(carro)
     })
     
     if (carResult.length >= 1) {
@@ -133,7 +108,6 @@ function pesquisaCarro() {
     }
 }
 
-exibeCarro(carList)
 
 
 window.addEventListener("keyup", (e) =>{

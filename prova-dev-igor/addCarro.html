@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./style.form.css">
+    <link rel="stylesheet" type="text/css" href="./style.add.css">
     <title>Cadastrar Carro</title>
 </head>
 <body>
@@ -18,15 +18,17 @@
     <div>
         <form>
             <label>Digite o modelo do carro</label><br>
-            <input type="text"><br>
+            <input type="text" id="car-model-input"><br>
             <label>Digite o preço do Carro</label><br>
-            <input type="text"><br>
+            <input type="text"id="car-value-input"><br>
             <label>Digite a descrição do carro</label><br>
-            <input type="text"><br>
+            <input type="text"id="car-desc-input"><br>
             <label>Faça o upload da foto do carro</label>
-            <input type="file"><br>
-            <input type="submit" value="Cadastrar carro">
+            <input type="file" id="car-img-input"><br>
+            <input type="button" value="Cadastrar carro" onclick="novoCarro()">
         </form>
     </div>
+
+    <script src="./script.add.js"></script>
 </body>
 </html>
