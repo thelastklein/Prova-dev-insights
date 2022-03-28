@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./style.add.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>Cadastrar Carro</title>
 </head>
 <body>
@@ -15,17 +16,22 @@
         </div>
     </header>
     
-    <div>
+    <div class="form-container container">
         <form id="form-car">
             <label>Digite o modelo do carro</label><br>
-            <input type="text" name="modelo-carro" id="car-model-input"><br>
+            <input type="text" class="text-input" name="modelo-carro" id="car-model-input">
             <label>Digite o preço do Carro</label><br>
-            <input type="text" name="valor-carro" id="car-value-input"><br>
+            <input type="text" class="text-input" name="valor-carro" id="car-value-input">
             <label>Digite a descrição do carro</label><br>
-            <input type="text" name="description-carro" id="car-desc-input"><br>
-            <label>Faça o upload da foto do carro</label>
-            <input type="file" name="file-carro" id="car-img-input"><br>
-            <input type="button" value="Cadastrar carro" onclick="novoCarro()">
+            <input type="text" class="text-input" name="description-carro" id="car-desc-input">
+            <input type="file" class="img-input" name="file-carro" id="car-img-input">
+            <label for="car-img-input">
+                <img src="./assets/upload-icon.png" class="up-img"> Adicionar foto...
+            </label>
+            <span>
+                <span id="file-name"></span> 
+            </span>
+            <input type="button" class="submit-btn" value="Cadastrar carro" onclick="novoCarro()">
         </form>
     </div>
 

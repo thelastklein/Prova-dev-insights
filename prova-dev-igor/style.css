@@ -213,6 +213,24 @@ h3 {
     font-size: 22px;
 }
 
+.new-car {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    right: 0;
+    margin: 15px 10px auto;
+    background-color: #FC6500;
+    color: white;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    z-index: 99;
+    font-size: 40px;
+    text-decoration: none;
+}
+
+
 @media (max-width: 750px) {
     .container{padding-left: 30px; padding-right: 30px;}
     .input-img{right: 55px;}
