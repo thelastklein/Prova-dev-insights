@@ -22,9 +22,9 @@ function novoCarro(){
             })
             .catch(Error => alert(Error))
             
-    // function redirect() {
-    //     return document.location.href="/prova-dev-igor"
-    // }
+    function redirect() {
+        return document.location.href="/prova-dev-igor"
+    }
 
 
  

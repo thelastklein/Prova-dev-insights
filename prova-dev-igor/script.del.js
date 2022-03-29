@@ -23,8 +23,8 @@ function listaCarros() {
         <td>R$ ${carList[i].valor}</td>
         <td>${carList[i].descricao}</td>
         <td>
-        <button class="edit-btn"><img src="./assets/edit-icon.png"></button>
-        <button class="del-btn" onclick="getCarId()" type="button"><img src="./assets/delete-icon.png"></button>
+        <button class="edit-btn"><img src="./assets/edit-icon.png" class="edit-img"></button>
+        <button class="del-btn" onclick="getCarId()" type="button"><img src="./assets/delete-icon.png" class="del-img"></button>
         </td>
         </tr> `
     }
@@ -37,6 +37,7 @@ function getCarId() {
             row.onclick = () => {
                 let idCarro = row.getAttribute('data-id')
                 deletaCarro(idCarro)
+
             }
         })
         

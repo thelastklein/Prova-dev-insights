@@ -32,19 +32,24 @@ table, th, td {
     margin-top: 50px;
     margin-bottom: 20px;
     border-collapse: collapse;
+    font-size: 18px;
 }
 
 th {
     font-size: 20px;
     padding: 5px;
+    background-color: #fc6500;
+    color: white;
+    border-color: black;
 }
 
 td {
  text-align: center;
+ padding: 5px;
 }
 
 .del-btn {
-
+    width: 60px;
     background: none;
     border: none;
 }
@@ -53,11 +58,31 @@ td {
     cursor: pointer;
 }
 
+.del-img {
+    width: 30px;
+    transition: 0.3s;
+}
+
+.del-img:hover {
+    width: 35px;
+}
+
 .edit-btn {
+    width: 60px;
     background: none;
     border: none;
 }
 
 .edit-btn:hover {
-    cursor: pointer;
+    cursor: pointer;   
+}
+
+.edit-img {
+    width: 30px;
+    transition: 0.3s;
+
+}
+
+.edit-img:hover {
+    width: 35px;
 }

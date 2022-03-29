@@ -43,7 +43,7 @@ function exibeModal(idCarro) {
     modalName.innerHTML = `${cardModal.modelo}`
 
     let modalPrice = document.querySelector('.modal-price')
-    modalPrice.innerHTML = `${cardModal.valor}`
+    modalPrice.innerHTML = `R$ ${cardModal.valor}`
 
     let modalDesc = document.querySelector('.modal-desc')
     modalDesc.innerHTML = `${cardModal.descricao}`
@@ -77,7 +77,7 @@ function exibeCarro(carResult) {
                 <div class="card-container" data-id=${carResult[i].id}>
                     <img class="car-img" src = ${apiUrl}/${carResult[i].filePath} alt="Carro">
                     <p class="car-name" data-name=${carResult[i].modelo}>${carResult[i].modelo}</p>
-                    <p class="car-price">${carResult[i].valor}</p>
+                    <p class="car-price">R$ ${carResult[i].valor}</p>
                 
                 </div>`     
     }

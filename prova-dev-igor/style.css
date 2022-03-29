@@ -167,11 +167,13 @@ h3 {
     font-size: 20px;
     font-weight: bold;
     border: none;
+    transition: 0.3s;
 }
 
 .buy-btn:hover {
     cursor: pointer;
-    filter:brightness(0.8)
+    letter-spacing: 1px;
+    width: 93%;
 }
 
 .card-container {
@@ -228,6 +230,11 @@ h3 {
     z-index: 99;
     font-size: 40px;
     text-decoration: none;
+    transition: 0.3s;
+}
+
+.new-car:hover {
+    width: 55px;
 }
 
 .del-car {
@@ -245,8 +252,12 @@ h3 {
     z-index: 99;
     font-size: 40px;
     text-decoration: none;
+    transition: 0.3s;
 }
 
+.del-car:hover {
+    width: 55px;
+}
 
 @media (max-width: 750px) {
     .container{padding-left: 30px; padding-right: 30px;}

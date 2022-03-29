@@ -55,12 +55,14 @@
     font-weight: bold;
     border: none;
     margin-top: 10px;
+    transition: 0.3s;
 
 }
 
 .submit-btn:hover {
     cursor: pointer;
-    filter:brightness(0.8)
+    letter-spacing: 1px;
+    width: 113%;
 }
 
 .text-input {
@@ -96,11 +98,12 @@ input#car-img-input + label {
     border: 2px solid;
     border-radius: 5px;
     color: white;
+    transition: 0.3s;
 }
 
 input#car-img-input + label:hover {
     cursor: pointer;
-    filter:brightness(0.8);
+    letter-spacing: 1px;
 }
 
 .up-img {
