@@ -6,7 +6,6 @@ function buscarApi(){
    .then(res => res.json())
    .then(data => { 
        carList = data
-       console.log(carList)
        listaCarros(carList)
    } ) 
 }
@@ -18,23 +17,48 @@ function listaCarros() {
     
     for(let i in carList) {
         carTable.innerHTML += `
-        <tr>
-            <td>${carList[i].modelo}</td>
-            <td>R$ ${carList[i].valor}</td>
-            <td>${carList[i].descricao}</td>
-            <td>
-                <button><img src="./assets/edit-icon.png"></button>
-                <button><img src="./assets/delete-icon.png"></button>
-            </td>
-        </tr>
-        `
+        <tr class="table-element" data-id=${carList[i].id}>
+        <td>${carList[i].id}</td>
+        <td>${carList[i].modelo}</td>
+        <td>R$ ${carList[i].valor}</td>
+        <td>${carList[i].descricao}</td>
+        <td>
+        <button class="edit-btn"><img src="./assets/edit-icon.png"></button>
+        <button class="del-btn" onclick="getCarId()" type="button"><img src="./assets/delete-icon.png"></button>
+        </td>
+        </tr> `
     }
+   
+} 
 
-    console.log(carList)
+function getCarId() {
+    let tableRow = document.querySelectorAll(".table-element")
+        tableRow.forEach(row => {   
+            row.onclick = () => {
+                let idCarro = row.getAttribute('data-id')
+                deletaCarro(idCarro)
+            }
+        })
+        
 }
 
 listaCarros()
 
-function deleteCarros() {
+function deletaCarro(idCarro) {
     
+    let carItem = carList.find(car => car.id == idCarro)
+    
+     console.log(carItem.id)
+
+    let form = new FormData()
+    form.append('id', carItem.id)
+     
+
+    fetch('https://imdev.azurewebsites.net/vendarro/delete-carro.php', {
+        method: "POST",
+        body: form
+    })
+.then(res => res.json())
+.then(data => console.log(data))
+
 }

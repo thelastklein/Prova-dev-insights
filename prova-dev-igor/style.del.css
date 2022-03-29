@@ -42,3 +42,22 @@ th {
 td {
  text-align: center;
 }
+
+.del-btn {
+
+    background: none;
+    border: none;
+}
+
+.del-btn:hover {
+    cursor: pointer;
+}
+
+.edit-btn {
+    background: none;
+    border: none;
+}
+
+.edit-btn:hover {
+    cursor: pointer;
+}

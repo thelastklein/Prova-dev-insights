@@ -3,6 +3,7 @@ function novoCarro(){
     let formCar = document.getElementById('form-car')
 
     let formData = new FormData(formCar)
+    console.log(formData)
 
     let url = "https://imdev.azurewebsites.net/vendarro/create-carro.php"
 
@@ -21,11 +22,11 @@ function novoCarro(){
             })
             .catch(Error => alert(Error))
             
-    function redirect() {
-        return document.location.href="/prova-dev-igor"
-    }
+    // function redirect() {
+    //     return document.location.href="/prova-dev-igor"
+    // }
 
-    // setTimeout(redirect,1000)
+
  
 }
 
