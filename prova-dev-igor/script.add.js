@@ -30,6 +30,31 @@ function novoCarro(){
  
 }
 
+function validar() {
+    let modelo = document.querySelector('#car-model-input')
+    let valor = document.querySelector('#car-value-input')
+    let desc = document.querySelector('#car-desc-input')
+    let validadeModel = document.querySelector(".validade-modelo")
+    let validadeValor = document.querySelector(".validade-valor")
+    let validadeDesc = document.querySelector(".validade-desc")
+    let validadeImg = document.querySelector(".validade-img")
+
+    let Img = document.querySelector("#car-img-input")
+    let files = Img.files
+    
+    if(modelo.value == "") {
+        validadeModel.textContent = "Atenção este campo é obrigatório"
+    } if(valor.value == ""){
+        validadeValor.textContent = "Atenção este campo é obrigatório"
+    } if(desc.value == ""){
+        validadeDesc.textContent = "Atenção este campo é obrigatório"
+    } if(files.length == 0){
+        validadeImg.textContent = "Por favor escolha uma imagem!"
+    } else {
+        novoCarro()
+    }
+}
+
 let inputFile = document.getElementById("car-img-input")
 let fileNameField = document.getElementById("file-name")
 
