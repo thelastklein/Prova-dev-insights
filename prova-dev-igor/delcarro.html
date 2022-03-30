@@ -15,6 +15,35 @@
             <h2>Vendarro LTDA</h2>
         </div>
     </header>
+    
+    <div class="bg-modal" onclick="fecharModal()"></div>
+    <div class="modal-container">
+        <div class="bg-close"> <p class="close-btn" onclick="fecharModal()">X</p> </div>
+        <div class="form-container-modal container">
+            <form id="form-car">
+                <label>Digite o modelo do carro</label>
+                <input type="text" class="text-input" name="modelo-carro" id="car-model-input">
+                <p class="validade-modelo"></p>
+                <label>Digite o preço do Carro</label>
+                <input type="text" class="text-input" name="valor-carro" id="car-value-input">
+                <p class="validade-valor"></p>
+                <label>Digite a descrição do carro</label>
+                <textarea  rows="4"class="text-area" name="description-carro" id="car-desc-input"></textarea>
+                <p class="validade-desc"></p>
+                <input type="file" class="img-input" name="file-carro" id="car-img-input">
+                <label for="car-img-input">
+                    <img src="./assets/upload-icon.png" class="up-img"> Adicionar foto...
+                </label>
+                <span>
+                    <span id="file-name"></span>
+                </span>
+                <p class="validade-img"></p> 
+                <input type="button" class="submit-btn" value="Cadastrar carro" onclick="validar()">
+            </form>
+        </div>
+
+    </div>
+
     <table class="car-table container">
         <tr>
             <th>Id</th>

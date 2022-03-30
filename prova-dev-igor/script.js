@@ -34,7 +34,7 @@ function exibeModal(idCarro) {
         top: 0,
         left: 0,
         behavior: 'smooth'
-      })
+    })
 
     let modalImg = document.querySelector('.modal-img')
     modalImg.setAttribute("src", `${apiUrl}/${cardModal.filePath}`)
