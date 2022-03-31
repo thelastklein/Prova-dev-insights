@@ -14,11 +14,12 @@
             <img src="./assets/Logo.png" alt="Logo">
             <h2>Vendarro LTDA</h2>
         </div>
+        <button class="add-btn">Adicionar carro</button>
     </header>
     
-    <div class="bg-modal" onclick="fecharModal()"></div>
+    <div class="bg-modal" onclick="fecharModalEdita(), fecharModalDeleta()"></div>
     <div class="modal-container">
-        <div class="bg-close"> <p class="close-btn" onclick="fecharModal()">X</p> </div>
+        <div class="bg-close"> <p class="close-btn" onclick="fecharModalEdita()">X</p> </div>
         <div class="form-container-modal container">
             <form id="form-car">
                 <label>Digite o modelo do carro</label>
@@ -38,10 +39,15 @@
                     <span id="file-name"></span>
                 </span>
                 <p class="validade-img"></p> 
-                <input type="button" class="submit-btn" value="Cadastrar carro" onclick="validar()">
+                <input type="button" class="submit-btn" value="Atualizar carro">
             </form>
         </div>
 
+    </div>
+    <div class="delete-modal">
+        <p>Tem certeza que deseja excluir o carro?</p>
+        <button class="confirm-del-car-btn">Sim</button>
+        <button class="cancel-btn">Não</button>
     </div>
 
     <table class="car-table container">

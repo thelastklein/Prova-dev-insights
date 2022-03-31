@@ -1,5 +1,9 @@
 let carList = []
 let apiUrl =  'https://imdev.azurewebsites.net/vendarro'
+let deleteId
+
+let deleteYes = document.querySelector(".confirm-del-car-btn")
+deleteYes.onclick = deletaCarro
 
 function buscarApi(){
    fetch(apiUrl + '/get-carros.php')
@@ -13,7 +17,9 @@ function buscarApi(){
 buscarApi()
 
 
-
+function abrirModalAdd() {
+    
+}
 
 
 function listaCarros() {
@@ -38,7 +44,7 @@ function listaCarros() {
         <td>${carList[i].descricao}</td>
         <td class="btn-col">
         <button class="edit-btn" data-id=${carList[i].id}><img src="./assets/edit-icon.png" class="edit-img"></button>
-        <button class="del-btn" data-id=${carList[i].id}><img src="./assets/delete-icon.png" class="del-img"></button>
+        <button class="open-del-confirm" data-id=${carList[i].id}><img src="./assets/delete-icon.png" class="del-img"></button>
         </td>
         </tr> `
     }
@@ -52,24 +58,53 @@ function listaCarros() {
                 }
             })
 
-        let tableDeleteBtn = document.querySelectorAll(".del-btn")
+        let tableDeleteBtn = document.querySelectorAll(".open-del-confirm")
             tableDeleteBtn.forEach(btn => {   
                 btn.onclick = () => {
-                    let idCarro = btn.getAttribute('data-id')
-                    deletaCarro(idCarro)
+                    deleteId = btn.getAttribute('data-id')
+                    abrirModalDeleta()
                 }
             })
             
 }
 
 
-
-
 listaCarros()
 
-function deletaCarro(idCarro) {
+function abrirModalDeleta() {
+    let modal = document.querySelector(".delete-modal")
+    modal.style.cssText += "transform: translateY(0%); visibility: visible"
 
-    let carItem = carList.find(car => car.id == idCarro)
+    let bg_modal = document.querySelector(".bg-modal")
+    bg_modal.style.display = "flex"
+
+
+    let body = document.querySelector("body")
+    body.style.cssText = "overflow: hidden"
+
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    })
+
+}
+
+
+function fecharModalDeleta(){
+    let modal = document.querySelector(".delete-modal")
+    modal.style.cssText += "transform: translateY(-150%); visibility: hidden"
+
+    let bg_modal = document.querySelector(".bg-modal")
+    bg_modal.style.display = "none"
+
+    let body = document.querySelector("body")
+    body.style.cssText = "overflow: auto"
+}
+
+function deletaCarro() {
+
+    let carItem = carList.find(car => car.id == deleteId)
     
     console.log(carItem.id)
 
@@ -82,19 +117,23 @@ function deletaCarro(idCarro) {
         body: form
     })
 .then(res => res.json())
-.then(data => console.log(data))
+.then(data => {
+    buscarApi()
+    fecharModalDeleta()
+    
+})
 
-listaCarros()
 
 }
 
 function editaCarro(idCarro) {
     let carItem = carList.find(car => car.id == idCarro)
 
-    exibeModal(carItem)
+    abrirModalEdita(carItem)
 }
 
-function exibeModal(carItem) {
+
+function abrirModalEdita(carItem) {
            
     let modal = document.querySelector(".modal-container")
     modal.style.cssText += "transform: translateY(0%); visibility: visible"
@@ -121,9 +160,43 @@ function exibeModal(carItem) {
 
     let descCar = document.getElementById('car-desc-input')
     descCar.value = `${carItem.descricao}`
+
+
+    
+    function atualizaCarro(){
+        
+        let formCar = document.getElementById('form-car')
+
+        let formData = new FormData(formCar)
+        formData.append('id', carItem.id)
+        console.log(formData)
+
+        let url = "https://imdev.azurewebsites.net/vendarro/update-carro.php"
+
+
+        fetch(url, {
+            method: "POST",
+            body: formData
+         })
+        .then(res => {
+             if(!res.ok) {
+                throw Error('Preencha todo o formulário corretamente')
+            }
+                return (
+                    alert("Carro atualizado com sucesso!!"))
+                })
+                .catch(Error => alert(Error))
+
+        fecharModal()
+        buscarApi()
+        listaCarros()
+    }
+
+    let updateCar = document.querySelector(".submit-btn")
+    updateCar.addEventListener("click", atualizaCarro)
 }
 
-function fecharModal() {
+function fecharModalEdita() {
  
     let modal = document.querySelector(".modal-container")
     modal.style.cssText += "transform: translateY(-150%); visibility: hidden"
