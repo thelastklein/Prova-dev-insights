@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./style.del.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Vendarro</title>
 </head>
 <body>
     <header class="header-container">
@@ -14,12 +14,12 @@
             <img src="./assets/Logo.png" alt="Logo">
             <h2>Vendarro LTDA</h2>
         </div>
-        <button class="add-btn">Adicionar carro</button>
+        <button class="add-btn" onclick="abrirModalAdd()">Adicionar carro</button>
     </header>
     
-    <div class="bg-modal" onclick="fecharModalEdita(), fecharModalDeleta()"></div>
-    <div class="modal-container">
-        <div class="bg-close"> <p class="close-btn" onclick="fecharModalEdita()">X</p> </div>
+    <div class="bg-modal" onclick="fecharModalEdita(), fecharModalDeleta(), fecharModalAdd()"></div>
+    <div class="add-modal">
+        <div class="bg-close-btn"> <p class="close-btn" onclick="fecharModalAdd()">X</p> </div>
         <div class="form-container-modal container">
             <form id="form-car">
                 <label>Digite o modelo do carro</label>
@@ -39,26 +39,47 @@
                     <span id="file-name"></span>
                 </span>
                 <p class="validade-img"></p> 
-                <input type="button" class="submit-btn" value="Atualizar carro">
+                <input type="button" class="submit-edit-btn" value="Adicionar carro">
             </form>
         </div>
 
     </div>
+
+    <div class="bg-modal" onclick="fecharModalEdita(), fecharModalDeleta()"></div>
+    <div class="edit-modal">
+        <div class="bg-close-btn"> <p class="close-btn" onclick="fecharModalEdita()">X</p> </div>
+        <div class="form-container-modal container">
+            <form id="form-car">
+                <label>Digite o modelo do carro</label>
+                <input type="text" class="text-input" name="modelo-carro" id="car-model-input">
+                <p class="validade-modelo"></p>
+                <label>Digite o preço do Carro</label>
+                <input type="text" class="text-input" name="valor-carro" id="car-value-input">
+                <p class="validade-valor"></p>
+                <label>Digite a descrição do carro</label>
+                <textarea  rows="4"class="text-area" name="description-carro" id="car-desc-input"></textarea>
+                <p class="validade-desc"></p>
+                <input type="file" class="img-input" name="file-carro" id="car-img-input">
+                <label for="car-img-input">
+                    <img src="./assets/upload-icon.png" class="up-img"> Adicionar foto...
+                </label>
+                <span>
+                    <span id="file-name"></span>
+                </span>
+                <p class="validade-img"></p> 
+                <input type="button" class="submit-edit-btn" value="Atualizar carro">
+            </form>
+        </div>
+
+    </div>
+
     <div class="delete-modal">
         <p>Tem certeza que deseja excluir o carro?</p>
         <button class="confirm-del-car-btn">Sim</button>
-        <button class="cancel-btn">Não</button>
+        <button class="cancel-btn" onclick="fecharModalDeleta()">Não</button>
     </div>
 
-    <table class="car-table container">
-        <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Preço</th>
-            <th>Descrição</th>
-            <th>Ação</th>
-        </tr>
-    </table>
+    <table class="car-table container"></table>
 
     <script src="./script.del.js"></script>
 </body>

@@ -5,6 +5,17 @@ let deleteId
 let deleteYes = document.querySelector(".confirm-del-car-btn")
 deleteYes.onclick = deletaCarro
 
+let inputFile = document.getElementById("car-img-input")
+let fileNameField = document.getElementById("file-name")
+
+inputFile.addEventListener('change', (e) =>{
+    let uploadedFileName = e.target.files[0].name
+    fileNameField.textContent = uploadedFileName;
+})
+
+let updateCar = document.querySelector(".submit-edit-btn")
+updateCar.addEventListener("click", validarAdd)
+
 function buscarApi(){
    fetch(apiUrl + '/get-carros.php')
    .then(res => res.json())
@@ -18,7 +29,83 @@ buscarApi()
 
 
 function abrirModalAdd() {
+    let modal = document.querySelector(".add-modal")
+    modal.style.cssText += "transform: translateY(0%); visibility: visible"
+
+    let bg_modal = document.querySelector(".bg-modal")
+    bg_modal.style.display = "flex"
+
+
+    let body = document.querySelector("body")
+    body.style.cssText = "overflow: hidden"
+
+    window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth'
+    })
+}
+
+function fecharModalAdd() {
+    let modal = document.querySelector(".add-modal")
+    modal.style.cssText += "transform: translateY(-150%); visibility: hidden"
+
+    let bg_modal = document.querySelector(".bg-modal")
+    bg_modal.style.display = "none"
+
+    let body = document.querySelector("body")
+    body.style.cssText = "overflow: auto"
+}
+
+function adicionaCarro() {
+    let formCar = document.getElementById('form-car')
+
+    let formData = new FormData(formCar)
+    console.log(formData)
+
+    let url = "https://imdev.azurewebsites.net/vendarro/create-carro.php"
+
+
+    fetch(url, {
+        method: "POST",
+        body: formData
+     })
+     .then(res => {
+         if(!res.ok) {
+             throw Error('Preencha todo o formulário corretamente')
+         }
+             return (
+                 alert("Carro adicionado com sucesso!!"))
+            })
+            .catch(Error => alert(Error))
+        
+}
+
+function validarAdd() {
+    let modelo = document.querySelector('#car-model-input')
+    let valor = document.querySelector('#car-value-input')
+    let desc = document.querySelector('#car-desc-input')
+    let validadeModel = document.querySelector(".validade-modelo")
+    let validadeValor = document.querySelector(".validade-valor")
+    let validadeDesc = document.querySelector(".validade-desc")
+    let validadeImg = document.querySelector(".validade-img")
+
+    let Img = document.querySelector("#car-img-input")
+    let files = Img.files
     
+    if(modelo.value == "") {
+        validadeModel.textContent = "Atenção este campo é obrigatório"
+    } if(valor.value == ""){
+        validadeValor.textContent = "Atenção este campo é obrigatório"
+    } if(desc.value == ""){
+        validadeDesc.textContent = "Atenção este campo é obrigatório"
+    } if(files.length == 0){
+        validadeImg.textContent = "Por favor escolha uma imagem!"
+    } else {
+        adicionaCarro()
+        fecharModalAdd()
+    }
+    buscarApi()
 }
 
 
@@ -135,7 +222,7 @@ function editaCarro(idCarro) {
 
 function abrirModalEdita(carItem) {
            
-    let modal = document.querySelector(".modal-container")
+    let modal = document.querySelector(".edit-modal")
     modal.style.cssText += "transform: translateY(0%); visibility: visible"
 
     let bg_modal = document.querySelector(".bg-modal")
@@ -192,13 +279,13 @@ function abrirModalEdita(carItem) {
         listaCarros()
     }
 
-    let updateCar = document.querySelector(".submit-btn")
+    let updateCar = document.querySelector(".submit-edit-btn")
     updateCar.addEventListener("click", atualizaCarro)
 }
 
 function fecharModalEdita() {
  
-    let modal = document.querySelector(".modal-container")
+    let modal = document.querySelector(".edit-modal")
     modal.style.cssText += "transform: translateY(-150%); visibility: hidden"
 
     let bg_modal = document.querySelector(".bg-modal")

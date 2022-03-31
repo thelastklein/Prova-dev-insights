@@ -96,6 +96,32 @@ td {
     width: 35px;
 }
 
+.add-btn {
+    margin-left: 76%;
+    width: 15%;
+    height: 35px;
+}
+
+.add-modal {
+    display: flex;
+    flex-wrap: wrap;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 15px;
+    justify-content: center;
+    position: fixed;
+    z-index: 101;
+    width: 70%;
+    margin: 90px auto;
+    border-radius: 5px;
+    background-color: white;
+    transform: translateY(-150%);
+    visibility: hidden;
+    transition: all 0.5s;
+    
+}
+
 .delete-modal {
     display: flex;
     flex-wrap: wrap;
@@ -116,7 +142,7 @@ td {
     
 }
 
-.modal-container {
+.edit-modal {
     display: flex;
     flex-wrap: wrap;
     top: 0;
@@ -167,7 +193,7 @@ td {
     color: black;
 }
 
-.bg-close {
+.bg-close-btn {
     background: #c4c4c4;
     position: absolute;
     display: flex;
@@ -202,7 +228,7 @@ td {
     align-items: center;
 }
 
-.submit-btn {
+.submit-edit-btn {
     bottom: 10px;
     width: 90%;
     height: 50px;
@@ -217,7 +243,7 @@ td {
 
 }
 
-.submit-btn:hover {
+.submit-edit-btn:hover {
     cursor: pointer;
     letter-spacing: 1px;
     width: 100%;

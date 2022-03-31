@@ -17,20 +17,13 @@ function novoCarro(){
              throw Error('Preencha todo o formulário corretamente')
          }
              return (
-                 alert("Carro adicionado com sucesso!!"),
-                 setTimeout(redirect,1000))
+                 alert("Carro adicionado com sucesso!!"))
             })
             .catch(Error => alert(Error))
             
-    function redirect() {
-        return document.location.href="/prova-dev-igor"
-    }
-
-
- 
 }
 
-function validar() {
+function validarAdd() {
     let modelo = document.querySelector('#car-model-input')
     let valor = document.querySelector('#car-value-input')
     let desc = document.querySelector('#car-desc-input')
