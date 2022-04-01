@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./style.del.css">
+    <link rel="stylesheet" type="text/css" href="./style.gc.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>Vendarro</title>
 </head>
@@ -49,15 +49,15 @@
     <div class="edit-modal">
         <div class="bg-close-btn"> <p class="close-btn" onclick="fecharModalEdita()">X</p> </div>
         <div class="form-container-modal container">
-            <form id="form-car">
+            <form id="edit-form-car">
                 <label>Digite o modelo do carro</label>
-                <input type="text" class="text-input" name="modelo-carro" id="car-model-input">
+                <input type="text" class="text-input" name="modelo-carro" id="edit-car-model-input">
                 <p class="validade-modelo"></p>
                 <label>Digite o preço do Carro</label>
-                <input type="text" class="text-input" name="valor-carro" id="car-value-input">
+                <input type="text" class="text-input" name="valor-carro" id="edit-car-value-input">
                 <p class="validade-valor"></p>
                 <label>Digite a descrição do carro</label>
-                <textarea  rows="4"class="text-area" name="description-carro" id="car-desc-input"></textarea>
+                <textarea  rows="4"class="text-area" name="description-carro" id="edit-car-desc-input"></textarea>
                 <p class="validade-desc"></p>
                 <input type="file" class="img-input" name="file-carro" id="car-img-input">
                 <label for="car-img-input">
@@ -74,13 +74,15 @@
     </div>
 
     <div class="delete-modal">
-        <p>Tem certeza que deseja excluir o carro?</p>
-        <button class="confirm-del-car-btn">Sim</button>
-        <button class="cancel-btn" onclick="fecharModalDeleta()">Não</button>
+        <p class="delete-modal-title">Tem certeza que deseja excluir o carro?</p>
+        <div class="del-modal-btn-container">
+            <button class="confirm-del-car-btn">Sim</button>
+            <button class="cancel-del-car-btn" onclick="fecharModalDeleta()">Não</button>
+        </div>
     </div>
 
     <table class="car-table container"></table>
 
-    <script src="./script.del.js"></script>
+    <script src="./script.gc.js"></script>
 </body>
 </html>

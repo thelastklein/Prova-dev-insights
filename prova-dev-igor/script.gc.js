@@ -55,6 +55,27 @@ function fecharModalAdd() {
 
     let body = document.querySelector("body")
     body.style.cssText = "overflow: auto"
+
+    let nomeCar = document.getElementById('car-model-input')
+    nomeCar.value = ""
+
+    let valorCar = document.getElementById('car-value-input')
+    valorCar.value = ""
+
+    let descCar = document.getElementById('car-desc-input')
+    descCar.value = ""
+
+    let validadeModel = document.querySelector(".validade-modelo")
+    let validadeValor = document.querySelector(".validade-valor")
+    let validadeDesc = document.querySelector(".validade-desc")
+    let validadeImg = document.querySelector(".validade-img")
+
+    validadeModel.textContent = ""
+    validadeValor.textContent = ""
+    validadeDesc.textContent = ""
+    validadeImg.textContent = ""
+
+
 }
 
 function adicionaCarro() {
@@ -77,8 +98,9 @@ function adicionaCarro() {
              return (
                  alert("Carro adicionado com sucesso!!"))
             })
-            .catch(Error => alert(Error))
-        
+            // .catch(Error => alert(Error))
+            
+            fecharModalAdd()
 }
 
 function validarAdd() {
@@ -103,9 +125,8 @@ function validarAdd() {
         validadeImg.textContent = "Por favor escolha uma imagem!"
     } else {
         adicionaCarro()
-        fecharModalAdd()
+        buscarApi()
     }
-    buscarApi()
 }
 
 
@@ -239,20 +260,20 @@ function abrirModalEdita(carItem) {
     })
 
 
-    let nomeCar = document.getElementById('car-model-input')
+    let nomeCar = document.getElementById('edit-car-model-input')
     nomeCar.value = `${carItem.modelo}`
 
-    let valorCar = document.getElementById('car-value-input')
+    let valorCar = document.getElementById('edit-car-value-input')
     valorCar.value = `${carItem.valor}`
 
-    let descCar = document.getElementById('car-desc-input')
+    let descCar = document.getElementById('edit-car-desc-input')
     descCar.value = `${carItem.descricao}`
 
 
     
     function atualizaCarro(){
         
-        let formCar = document.getElementById('form-car')
+        let formCar = document.getElementById('edit-form-car')
 
         let formData = new FormData(formCar)
         formData.append('id', carItem.id)
