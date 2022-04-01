@@ -282,7 +282,7 @@ function abrirModalEdita(carItem) {
     updateCar.addEventListener("click", atualizaCarro)
     
     function atualizaCarro(){
-        console.log("olaaaaa")
+        
         let formCar = document.getElementById('edit-form-car')
 
         let formData = new FormData(formCar)
