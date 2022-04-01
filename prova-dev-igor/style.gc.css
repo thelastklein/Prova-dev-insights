@@ -302,7 +302,28 @@ td {
 
 }
 
+.submit-add-btn {
+    bottom: 10px;
+    width: 90%;
+    height: 50px;
+    background-color: #FC6500;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    margin-top: 10px;
+    transition: 0.3s;
+
+}
+
 .submit-edit-btn:hover {
+    cursor: pointer;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+.submit-add-btn:hover {
     cursor: pointer;
     letter-spacing: 1px;
     width: 100%;
@@ -362,4 +383,25 @@ input#car-img-input + label:hover {
 
 .up-img {
     width: 30px;
+}
+
+input#car-edit-img-input {
+    display: none;
+}
+
+input#car-edit-img-input + label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FC6500;
+    padding: 10px;
+    border: 2px solid;
+    border-radius: 5px;
+    color: white;
+    transition: 0.3s;
+}
+
+input#car-edit-img-input + label:hover {
+    cursor: pointer;
+    letter-spacing: 1px;
 }

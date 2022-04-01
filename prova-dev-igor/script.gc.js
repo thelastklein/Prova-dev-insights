@@ -13,8 +13,17 @@ inputFile.addEventListener('change', (e) =>{
     fileNameField.textContent = uploadedFileName;
 })
 
-let updateCar = document.querySelector(".submit-edit-btn")
-updateCar.addEventListener("click", validarAdd)
+let editInputFile = document.getElementById("car-edit-img-input")
+let editFileNameField = document.getElementById("edit-file-name")
+
+editInputFile.addEventListener('change', (e) =>{
+    let uploadedEditFileName = e.target.files[0].name
+    editFileNameField.textContent = uploadedEditFileName;
+})
+
+let addCar = document.querySelector(".submit-add-btn")
+addCar.addEventListener("click", validarAdd)
+
 
 function buscarApi(){
    fetch(apiUrl + '/get-carros.php')
@@ -98,7 +107,7 @@ function adicionaCarro() {
              return (
                  alert("Carro adicionado com sucesso!!"))
             })
-            // .catch(Error => alert(Error))
+            .catch(Error => alert(Error))
             
             fecharModalAdd()
 }
@@ -269,10 +278,11 @@ function abrirModalEdita(carItem) {
     let descCar = document.getElementById('edit-car-desc-input')
     descCar.value = `${carItem.descricao}`
 
-
+    let updateCar = document.querySelector(".submit-edit-btn")
+    updateCar.addEventListener("click", atualizaCarro)
     
     function atualizaCarro(){
-        
+        console.log("olaaaaa")
         let formCar = document.getElementById('edit-form-car')
 
         let formData = new FormData(formCar)
@@ -295,13 +305,10 @@ function abrirModalEdita(carItem) {
                 })
                 .catch(Error => alert(Error))
 
-        fecharModal()
+        fecharModalEdita()
         buscarApi()
-        listaCarros()
     }
 
-    let updateCar = document.querySelector(".submit-edit-btn")
-    updateCar.addEventListener("click", atualizaCarro)
 }
 
 function fecharModalEdita() {
