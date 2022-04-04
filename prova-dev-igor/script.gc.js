@@ -2,8 +2,6 @@ let carList = []
 let apiUrl =  'https://imdev.azurewebsites.net/vendarro'
 let deleteId
 
-let deleteYes = document.querySelector(".confirm-del-car-btn")
-deleteYes.onclick = deletaCarro
 
 let inputFile = document.getElementById("car-img-input")
 let fileNameField = document.getElementById("file-name")
@@ -40,8 +38,19 @@ closeModalBtnAdd.addEventListener("click", fecharModalAdd)
 let closeModalBtnEdit = document.querySelector(".close-btn-edit")
 closeModalBtnEdit.addEventListener("click", fecharModalEdita)
 
+let confirmDelCar = document.querySelector(".confirm-del-car-btn")
+confirmDelCar.onclick = deletaCarro
+
 let cancelDelCar = document.querySelector(".cancel-del-car-btn")
 cancelDelCar.addEventListener("click", fecharModalDeleta)
+
+window.addEventListener("keyup", (e) =>{
+    if(e.key == "Escape") {
+        fecharModalAdd()
+        fecharModalEdita()
+        fecharModalDeleta()
+    }
+})
 
 
 function buscarApi(){
@@ -94,6 +103,9 @@ function fecharModalAdd() {
     let descCar = document.getElementById('car-desc-input')
     descCar.value = ""
 
+    // let imgCar = document.getElementById('car-img-input')
+    // imgCar.files[0] = null
+
     let validadeModel = document.querySelector(".validade-modelo")
     let validadeValor = document.querySelector(".validade-valor")
     let validadeDesc = document.querySelector(".validade-desc")
@@ -120,15 +132,18 @@ function adicionaCarro() {
         body: formData
      })
      .then(res => {
-         if(!res.ok) {
+        if(!res.ok) {
              throw Error('Preencha todo o formulário corretamente')
-         }
+        }
              return (
                  alert("Carro adicionado com sucesso!!"))
             })
-            .catch(Error => alert(Error))
+    .then(data => {
+        fecharModalAdd()
+        buscarApi()
+    })
+    .catch(Error => alert(Error))
             
-            fecharModalAdd()
 }
 
 function validarAdd() {
@@ -343,16 +358,18 @@ function abrirModalEdita(carItem) {
             body: formData
          })
         .then(res => {
-             if(!res.ok) {
+            if(!res.ok) {
                 throw Error('Preencha todo o formulário corretamente')
             }
                 return (
                     alert("Carro atualizado com sucesso!!"))
                 })
-                .catch(Error => alert(Error))
+        .then(data => {
+            fecharModalEdita()
+            buscarApi()
+        })
+        .catch(Error => alert(Error))
 
-        fecharModalEdita()
-        buscarApi()
     }
 
 }
