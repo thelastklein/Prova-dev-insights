@@ -14,12 +14,12 @@
             <img src="./assets/Logo.png" alt="Logo">
             <h2>Vendarro LTDA</h2>
         </div>
-        <button class="add-btn" onclick="abrirModalAdd()">Adicionar carro</button>
+        <button class="add-btn">Adicionar carro</button>
     </header>
     
-    <div class="bg-modal" onclick="fecharModalEdita(), fecharModalDeleta(), fecharModalAdd()"></div>
+    <div class="bg-modal"></div>
     <div class="add-modal">
-        <div class="bg-close-btn"> <p class="close-btn" onclick="fecharModalAdd()">X</p> </div>
+        <div class="bg-close-btn"> <p class="close-btn">X</p> </div>
         <div class="form-container-modal container">
             <form id="form-car">
                 <label>Digite o modelo do carro</label>
@@ -45,9 +45,9 @@
 
     </div>
 
-    <div class="bg-modal" onclick="fecharModalEdita(), fecharModalDeleta()"></div>
+    <div class="bg-modal"></div>
     <div class="edit-modal">
-        <div class="bg-close-btn"> <p class="close-btn" onclick="fecharModalEdita()">X</p> </div>
+        <div class="bg-close-btn"> <p class="close-btn-edit">X</p> </div>
         <div class="form-container-modal container">
             <form id="edit-form-car">
                 <label>Digite o modelo do carro</label>
@@ -77,7 +77,7 @@
         <p class="delete-modal-title">Tem certeza que deseja excluir o carro?</p>
         <div class="del-modal-btn-container">
             <button class="confirm-del-car-btn">Sim</button>
-            <button class="cancel-del-car-btn" onclick="fecharModalDeleta()">Não</button>
+            <button class="cancel-del-car-btn">Não</button>
         </div>
     </div>
 

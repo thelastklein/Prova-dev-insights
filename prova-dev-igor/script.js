@@ -13,6 +13,11 @@ function buscarApi(){
 
 buscarApi()
 
+let bgModal = document.querySelector(".bg-modal")
+bgModal.addEventListener("click", fecharModal)
+
+let closeModalBtn = document.querySelector(".close-btn")
+closeModalBtn.addEventListener("click", fecharModal)
 
 
 function exibeModal(idCarro) {

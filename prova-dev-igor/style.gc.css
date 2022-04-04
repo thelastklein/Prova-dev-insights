@@ -239,7 +239,25 @@ td {
  
 }
 
+.close-btn-edit {
+    display: flex;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    padding: 5px;
+    font-size: 25px;
+    color: white;
+ 
+}
+
 .close-btn:hover {
+    cursor: pointer;
+    color: black;
+}
+
+.close-btn-edit:hover {
     cursor: pointer;
     color: black;
 }

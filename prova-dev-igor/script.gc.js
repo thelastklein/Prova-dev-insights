@@ -24,6 +24,25 @@ editInputFile.addEventListener('change', (e) =>{
 let addCar = document.querySelector(".submit-add-btn")
 addCar.addEventListener("click", validarAdd)
 
+let addBtn = document.querySelector(".add-btn")
+addBtn.addEventListener("click", abrirModalAdd)
+
+let bgModal = document.querySelector(".bg-modal")
+bgModal.addEventListener("click", () => {
+    fecharModalAdd()
+    fecharModalDeleta()
+    fecharModalEdita()
+})
+
+let closeModalBtnAdd = document.querySelector(".close-btn")
+closeModalBtnAdd.addEventListener("click", fecharModalAdd)
+
+let closeModalBtnEdit = document.querySelector(".close-btn-edit")
+closeModalBtnEdit.addEventListener("click", fecharModalEdita)
+
+let cancelDelCar = document.querySelector(".cancel-del-car-btn")
+cancelDelCar.addEventListener("click", fecharModalDeleta)
+
 
 function buscarApi(){
    fetch(apiUrl + '/get-carros.php')
@@ -53,6 +72,7 @@ function abrirModalAdd() {
         left: 0,
         behavior: 'smooth'
     })
+
 }
 
 function fecharModalAdd() {
@@ -83,7 +103,6 @@ function fecharModalAdd() {
     validadeValor.textContent = ""
     validadeDesc.textContent = ""
     validadeImg.textContent = ""
-
 
 }
 
