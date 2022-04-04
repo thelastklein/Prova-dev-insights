@@ -279,8 +279,35 @@ function abrirModalEdita(carItem) {
     descCar.value = `${carItem.descricao}`
 
     let updateCar = document.querySelector(".submit-edit-btn")
-    updateCar.addEventListener("click", atualizaCarro)
-    
+    updateCar.addEventListener("click", validarEdit)
+
+    function validarEdit() {
+        
+        let modelo = document.querySelector('#edit-car-model-input')
+        let valor = document.querySelector('#edit-car-value-input')
+        let desc = document.querySelector('#edit-car-desc-input')
+        let validadeModel = document.querySelector(".edit-validade-modelo")
+        let validadeValor = document.querySelector(".edit-validade-valor")
+        let validadeDesc = document.querySelector(".edit-validade-desc")
+        let validadeImg = document.querySelector(".edit-validade-img")
+
+        let Img = document.querySelector("#car-edit-img-input")
+        let files = Img.files
+        
+        if(modelo.value == "") {
+            validadeModel.textContent = "Atenção este campo é obrigatório"
+        } if(valor.value == ""){
+            validadeValor.textContent = "Atenção este campo é obrigatório"
+        } if(desc.value == ""){
+            validadeDesc.textContent = "Atenção este campo é obrigatório"
+        } if(files.length == 0){
+            validadeImg.textContent = "Por favor escolha uma imagem!"
+        } else {
+           atualizaCarro()
+        }
+    }
+
+
     function atualizaCarro(){
         
         let formCar = document.getElementById('edit-form-car')
@@ -321,5 +348,15 @@ function fecharModalEdita() {
 
     let body = document.querySelector("body")
     body.style.cssText = "overflow: auto"
+
+    let validadeModel = document.querySelector(".edit-validade-modelo")
+    let validadeValor = document.querySelector(".edit-validade-valor")
+    let validadeDesc = document.querySelector(".edit-validade-desc")
+    let validadeImg = document.querySelector(".edit-validade-img")
+
+    validadeModel.textContent = ""
+    validadeValor.textContent = ""
+    validadeDesc.textContent = ""
+    validadeImg.textContent = ""
 
 }

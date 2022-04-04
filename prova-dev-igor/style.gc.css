@@ -360,6 +360,12 @@ label {
     font-style: italic;
 }
 
+#edit-form-car p {
+    color: red;
+    font-size: 12px;
+    font-style: italic;
+}
+
 input#car-img-input {
     display: none;
 }
@@ -404,4 +410,17 @@ input#car-edit-img-input + label {
 input#car-edit-img-input + label:hover {
     cursor: pointer;
     letter-spacing: 1px;
+}
+
+@media (max-width: 450px) {
+    .container{padding-left:30px; padding-right: 30px;}
+    .header-container{width: 150%;}
+    .add-btn{width: 30%; height: 50px; font-size: 15px;}
+    .delete-modal{width: 50%;}
+    .car-table{width: 150%;}
+}
+
+@media (max-width: 906px) {
+    .add-btn{width: 20%;}
+
 }

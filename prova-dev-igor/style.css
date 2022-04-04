@@ -215,7 +215,7 @@ h3 {
 }
 
 
-.del-car {
+.gerenciar-car {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -233,7 +233,7 @@ h3 {
     transition: 0.3s;
 }
 
-.del-car:hover {
+.gerenciar-car:hover {
     width: 55px;
 }
 
